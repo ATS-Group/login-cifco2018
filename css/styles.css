@@ -101,6 +101,14 @@ h1 {
     color: #fff;
 }
 
+.input[type=submit]:hover {
+    background: #cf005a;
+}
+
+.input[type=submit] {
+    transition: all 0.8s;
+}
+
 @media all and(max-height: 240) {
     .window {
         widows: 100%;
