@@ -18,3 +18,81 @@ document.addEventListener("DOMContentLoaded", function() {
     curveAnimation('#curve1', curvePaths[1], 50);
     curveAnimation('#curve2', curvePaths[2], 100);
 });
+
+$(function() {
+
+    $('#fuser_error_message').hide();
+    $('#fpassword_error_message').hide();
+
+    var error_user = false;
+    var error_pass = false;
+
+    //Eventos
+    $('#form_user').focusout(function() {
+        check_user();
+    });
+    $('#form_pass').focusout(function() {
+        check_pass();
+    });
+
+
+    //Validar usuario
+    function check_user() {
+        var pattern = /^[a-z\d_]{4,15}$/;
+        var user = $('#form_user').val();
+        if (pattern.test(user) && user !== '') {
+            $('#fuser_error_message').hide();
+            var visual = anime({
+                targets: '#form_user',
+                borderBottom: '2px solid #2AAF74',
+                transition: 'all 0.1s'
+            });
+        } else {
+            $('#fuser_error_message').html("Ingrese un usuario valido.");
+            $('#fuser_error_message').show();
+            var visual = anime({
+                targets: '#form_user',
+                borderBottom: '2px solid #dd3333',
+            });
+            error_user = true;
+        }
+    }
+
+    //Comprobar contraseña
+    function check_pass() {
+        var password_length = $("#form_pass").val().length;
+        if (password_length < 8) {
+            $('#fpassword_error_message').html("Ingresa la contraseña correcta");
+            $('#fpassword_error_message').show();
+            var visual = anime({
+                targets: '#form_pass',
+                borderBottom: '2px solid #dd3333',
+                transition: 'all 0.1s'
+            });
+        } else {
+            $('#fpassword_error_message').hide();
+            var visual = anime({
+                targets: '#form_pass',
+                borderBottom: '2px solid #2AAF74',
+                transition: 'all 0.1s'
+            });
+            error_pass = true;
+        }
+
+    }
+
+    $('#form').submit(function() {
+        error_user = false;
+        error_pass = false;
+
+        check_user();
+        check_pass();
+
+        if (error_user == false && error_pass == false) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+
+});

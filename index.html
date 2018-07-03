@@ -23,17 +23,20 @@
         </div>
         <div class="window">
             <h1>Inicio de sesión</h1>
-            <form action="" class="form">
+            <form action="" class="form" id="form">
                 <label for="usuario" class="label">Usuario</label>
-                <input type="text" class="input">
+                <span class="error_form" id="fuser_error_message"></span>
+                <input type="text" class="input" id="form_user">
                 <label for="password" class="label">Contraseña</label>
-                <input type="password" class="input">
-                <input type="submit" class="input enviar" value="Enviar">
+                <span class="error_form" id="fpassword_error_message"></span>
+                <input type="password" class="input" id="form_pass">
+                <input type="submit" class="input enviar" value="Enviar" id="submit">
             </form>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 
