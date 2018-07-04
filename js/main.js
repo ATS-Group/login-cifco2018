@@ -41,20 +41,13 @@ $(function() {
         var pattern = /^[a-zA-z\d_]{4,15}$/;
         var user = $('#form_user').val();
         if (pattern.test(user) && user !== '') {
-            $('#fuser_error_message').hide();
-            var visual = anime({
-                targets: '#form_user',
-                borderBottom: '2px solid #2AAF74',
-                transition: 'all 0.1s'
-            });
+            $('#fuser_error_message')
+            $('#form_user').css('border-bottom', '2px solid #2AAF74');
         } else {
             $('#fuser_error_message').html("Ingrese un usuario valido.");
             $('#fuser_error_message').show();
-            var visual = anime({
-                targets: '#form_user',
-                borderBottom: '2px solid #dd3333',
-            });
-            error_user = true;
+            $('#form_user').css('border-bottom', '2px solid #dd3333');
+
         }
     }
 
@@ -64,19 +57,12 @@ $(function() {
         if (password_length < 8) {
             $('#fpassword_error_message').html("Ingresa la contraseña correcta");
             $('#fpassword_error_message').show();
-            var visual = anime({
-                targets: '#form_pass',
-                borderBottom: '2px solid #dd3333',
-                transition: 'all 0.1s'
-            });
+            $('#form_pass').css('border-bottom', '2px solid #dd3333');
+
         } else {
             $('#fpassword_error_message').hide();
-            var visual = anime({
-                targets: '#form_pass',
-                borderBottom: '2px solid #2AAF74',
-                transition: 'all 0.1s'
-            });
-            error_pass = true;
+            $('#form_pass').css('border-bottom', '2px solid #2AAF74');
+
         }
 
     }
@@ -89,10 +75,13 @@ $(function() {
         check_pass();
 
         if (error_user == false && error_pass == false) {
+            console.log('envio');
             return true;
+
         } else {
+            console.log('no envio');
             return false;
         }
-    })
+    });
 
 });

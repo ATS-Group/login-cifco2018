@@ -23,14 +23,17 @@
         </div>
         <div class="window">
             <h1>Inicio de sesión</h1>
-            <form action="" class="form" id="form">
+            <form action="" method="POST" class="form" id="form">
+
                 <label for="usuario" class="label">Usuario</label>
                 <span class="error_form" id="fuser_error_message"></span>
-                <input type="text" class="input" id="form_user">
+                <input type="text" name='user' class="input" id="form_user">
+
                 <label for="password" class="label">Contraseña</label>
                 <span class="error_form" id="fpassword_error_message"></span>
-                <input type="password" class="input" id="form_pass">
-                <input type="submit" class="input enviar" value="Enviar" id="submit">
+                <input type="password" name='pass' class="input" id="form_pass">
+
+                <input type="submit" value="Enviar" class="input enviar" id="submit">
             </form>
         </div>
     </div>
