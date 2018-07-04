@@ -38,7 +38,7 @@ $(function() {
 
     //Validar usuario
     function check_user() {
-        var pattern = /^[a-z\d_]{4,15}$/;
+        var pattern = /^[a-zA-z\d_]{4,15}$/;
         var user = $('#form_user').val();
         if (pattern.test(user) && user !== '') {
             $('#fuser_error_message').hide();
